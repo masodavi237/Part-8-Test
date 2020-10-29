@@ -17,6 +17,8 @@ namespace Part_8_Test
             string email;
             string reverseName;
             string backwards;
+            string word;
+            string reverseWord;
 
 
             Console.WriteLine("Please enter your first name");
@@ -32,16 +34,38 @@ namespace Part_8_Test
 
             Console.WriteLine($"Greetings {first}, your email is {email}, and your username is {username}");
 
-            first = first.ToLower();
+            first = first.ToUpper();
             last = last.ToLower();
 
             reverseName = String.Concat(first, last);
-            backwards = String.
+            backwards = "";
 
+            for (int i = reverseName.Length; i > 0; i --) 
+            {
+                backwards = string.Concat(backwards, reverseName[i-1]);
+            }
+
+            Console.WriteLine(backwards);
             Console.ReadLine();
 
+            reverseWord = "";
+            Console.WriteLine("Please enter a word");
+            word = Console.ReadLine().ToLower();
 
+            for (int i = word.Length; i > 0; i--)
+            {
+                reverseWord = string.Concat(reverseWord, word[i - 1]);
+            }
 
+            if (reverseWord.Equals(word))
+            {
+                Console.WriteLine("The word is a palindrome");
+            }
+            else
+            {
+                Console.WriteLine("The word is not a palindrome");
+            }
+            Console.ReadLine();
         }
     }
 }
